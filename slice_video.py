@@ -33,12 +33,12 @@ for row in range(0,len(csvFinal)):
 	timeDiff = csvFinal[row][3] #grabs time difference
 	fileName = csvFinal[row][0] #sets input filename
 	outputPath = csvFinal[row][1] #sets output path
-	#command = ["ffmpeg","-ss",str(onsetTime),"-t",str(timeDiff),"-i",str(fileName),str(outputPath),"-y"]
-	command = ["ffmpeg","-ss",str(onsetTime),"-t",str(timeDiff),"-i",str(fileName),"-an",str(outputPath),"-y"]
+	#command = ["ffmpeg","-ss",str(onsetTime),"-t",str(timeDiff),"-i",str(fileName),str(outputPath),"-y"] #normal command, leaves audio on video file
+	command = ["ffmpeg","-ss",str(onsetTime),"-t",str(timeDiff),"-i",str(fileName),"-an",str(outputPath),"-y"] #cuts videos and strips audio
 	command_string = " ".join(command)
 	print(command_string)
 	os.system(command_string)
 	beepString = str(outputPath).replace(".mov","_beep.mov")
-	command2 = ["ffmpeg","-i", str(outputPath), "-itsoffset","3","-i","beep2.mp3", "-map","0:0","-map","1:0","-preset","ultrafast",beepString]
+	command2 = ["ffmpeg","-i", str(outputPath), "-itsoffset","3","-i","beep2.mp3", "-map","0:0","-map","1:0","-preset","ultrafast",beepString] #adds beep to the video at the verb onset time
 	command_string2 = " ".join(command2)
 	os.system(command_string2)
