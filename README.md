@@ -2,13 +2,6 @@
 
 ## Usage
 
-Must put the beep audio file (beep.mp3) in the same folder as the script
+Must put the beep audio file (beep.mp3) in the same folder as the script if adding beep.
 
-Place in the same folder as the video files. Video files should only contain date and kid ID, and reads from compiledValues.csv, with filename, verb, and onset information. Creates new videos, 5 seconds long, with the naming format of "(verb)(kidID)(utteranceCount)_(length).mov".
-
-
-
-
-# CSV Joiner Script
-
-Place in same folder as cleaned csv files, finds files that have "verbonset_cleaned" in the name and copies the data into a new array, which is then written to the file compiledValues.csv.
+Place in the same folder as the video files and csv file. Csv file should contain the video file name(s) without the file extension, utterance onset, utterance offset, verb, and verb onset (in that order). Creates new videos, 5 seconds long, with the naming format of "(verb)_(filename)_(utteranceCount)_(length).(fileextension)"
