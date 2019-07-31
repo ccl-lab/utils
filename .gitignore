@@ -1,3 +1,5 @@
 *.jpeg
 *.mov
 *.excel
+*.csv
+*.DS_Store
